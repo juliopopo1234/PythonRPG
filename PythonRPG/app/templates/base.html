@@ -14,13 +14,11 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <div class="navbar-nav">
             <a class="nav-item nav-link active" href="{{ url_for('homepage') }}">Accueil </a>
-            <a class="nav-item nav-link" href="{{ url_for('gamepage') }}}">Game</a>
+            <a class="nav-item nav-link" href="{{ url_for('gamepage') }}">Game</a>
             <a class="nav-item nav-link" href="#">About</a>
           </div>
         </div>
       </nav>
-      {% block content %}
-      
-      {% endblock %}
+      {% block content %}{% endblock %}
 </body>
 </html>

@@ -9,29 +9,56 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
   <script>
-    const app = new PIXI.Application({
-      width: 1800, height: 800, backgroundColor: 0x1099bb,
-  });
-  document.body.appendChild(app.view);
-  
-  const container = new PIXI.Container();
-  
-  app.stage.addChild(container);
-  
-  console.log(PIXI.utils.TextureCache);
 
+    //New PiXi app
+    const app = new PIXI.Application({width: 1270, height: 800, backgroundColor: 0x1099bb,});
+    document.body.appendChild(app.view);
+  
+  //New PIXI Container
+  const container = new PIXI.Container();
+  //add to the app
+  app.stage.addChild(container);
+
+  console.log(PIXI.utils.TextureCache);
+// debut des load
   const loader = PIXI.Loader.shared
   loader
-    .add('herbeCielBleu', '/static/herbeCielBleu.png');
+    .add('herbeCielBleu', '/static/herbeCielBleu.png')
+    .add('ButtonStart','/static/ButtonStart.png')
+    .add('Sonic1','/static/Sonic1.png');
   loader
     .on('complete', function(loader, resources) {
     let sprite1 = new PIXI.Sprite(loader.resources.herbeCielBleu.texture);
-    app.stage.addChild(sprite1);
-    sprite.anchor.set(0.5,0.5)
+    let sprite2 = new PIXI.Sprite(loader.resources.ButtonStart.texture);
+    let sprite3 = new PIXI.Sprite(loader.resources.Sonic1.texture);
 
+    //taille bouton start
+    sprite2.width = 100;
+    sprite2.height = 100;
+
+    //position bouton start
+    sprite2.x = 625;
+    sprite2.y = 100;
+
+    //position du sonic
+      sprite3.x = 0
+      sprite3.y = 450
+    app.stage.addChild(sprite1,sprite2,sprite3);
   });
 
+
+  //load des ressources
   loader.load();
+  
+  //const loader2 = PIXI.Loader.shared
+    //loader2
+    //.add('ButtonStart','/static/ButtonStart.jpg');
+  //loader2
+    //.on('complete', function(loader2, resources) {
+    //let sprite2 = new PIXI.Sprite(loader.resources.ButtonStart.texture);
+    //app.stage.addChild(sprite2);
+//});
+  //loader2.load();
 
   //console.log(window.location);
 

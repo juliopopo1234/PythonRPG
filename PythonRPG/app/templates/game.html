@@ -1,9 +1,69 @@
-{% extends "base.html" %}
+<!DOCTYPE html>
+{% extends "Base.html" %}
+<html>
+  {% block head %}  {% endblock %} 
+  {% block title %}Sonic TheGame{% endblock %} 
+  
+  {% block content %}
+  <h1>Ceci est la page de jeu</h1>
 
-{% block title %} Le Jeu - Sonic The Game {% endblock %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pixi.js/5.1.3/pixi.min.js"></script>
+  <script>
+    const app = new PIXI.Application({
+      width: 1800, height: 800, backgroundColor: 0x1099bb,
+  });
+  document.body.appendChild(app.view);
+  
+  const container = new PIXI.Container();
+  
+  app.stage.addChild(container);
+  
+  console.log(PIXI.utils.TextureCache);
 
-{% block content %} 
-<h1>Ceci est la page de jeu</h1>
+  const loader = PIXI.Loader.shared
+  loader
+    .add('herbeCielBleu', '/static/herbeCielBleu.png');
+  loader
+    .on('complete', function(loader, resources) {
+    let sprite1 = new PIXI.Sprite(loader.resources.herbeCielBleu.texture);
+    app.stage.addChild(sprite1);
+    sprite.anchor.set(0.5,0.5)
+
+  });
+
+  loader.load();
+
+  //console.log(window.location);
 
 
-{% endblock %}
+  // Create a new texture
+  //const texture = PIXI.Texture.from('herbeCielBleu.png');
+  //const texture1 = PIXI.Texture.WHITE;
+
+  //let loader = PIXI.Loader
+  //  .add('herbeCielBleu', 'assets/herbeCielBleu.png');
+
+
+  //let img;
+
+  //function setup() {
+  //sprite = new PIXI.Sprite(PIXI.loader.resources['img/image.png'].texture);
+  //sprite.x = 40;
+  //sprite.y = 60;
+  //sprite.anchor.set(0.5, 0.5);
+  //stage.addChild(sprite);
+  //}
+
+
+//   On a ici les bases de notre moteur de jeu. En gros :
+//  on crée un canvas (renderer),
+//  on ajoute le canvas à la page (appendChild),
+//  on crée un conteneur (stage),
+//  on charge les ressources (loader),
+//  on initialise les sprites (setup) et on les met dans le conteneur (addChild),
+//  on crée une boucle infinie pour faire les changements à l’affichage.
+//  Les bases sont là mais on a encore du chemin à parcourir !
+  
+  </script>
+  {% endblock %}
+</html>

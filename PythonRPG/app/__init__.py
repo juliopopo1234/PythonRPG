@@ -1,16 +1,23 @@
-# app/__init__.py
+from flask import Flask, render_template, redirect, url_for
+#Base
+from flask_pymongo import PyMongo
 
-from flask import Flask,render_template,url_for
+app = Flask(__name__)
+app.config["MONGO_URI"] = "mongodb://localhost:27017/BddRPG"
+mongo = PyMongo(app)
 
-def create_app():
-    app = Flask(__name__)
+@app.route("/")
+def index():
+    return render_template("Home.html")
 
-    @app.route('/')
-    def homepage():
-        return render_template('home.html')
+@app.route("/home")
+def home():
+    return render_template("Home.html")
 
-    @app.route('/game')
-    def gamepage():
-        return render_template('game.html')
+@app.route("/game")
+def game():
+    return render_template("Game.html")
 
-    return app
+@app.route("/assets")
+def assets():
+    return 'Hello World'

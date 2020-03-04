@@ -7,6 +7,16 @@ verify_ssl = true
 
 [packages]
 flask = "*"
+python-dotenv = "*"
+flask-pymongo = "*"
+simplejson = "*"
 
 [requires]
 python_version = "3.7"
+
+[scripts]
+dev = "flask run"
+
+
+
+

@@ -1,0 +1,30 @@
+L'idée de ce projet est de faire un jeu Sonic de type RPG(Role Playing Game) au tour par tour
+
+Sonic doit parcourir des scénarios et tuer des ennemis pour avancer et continuer dans les scénarios.
+
+Faire un DCU 
+Faire un MCD, MLD
+Base de données = Jeu auxquel tous le monde peut acceder et avoir ses scores et les meilleurs scores.
+
+
+Fonctionnalités du Sonic: 
+- Enlever des PV (point de vie)
+- Courir
+- Mettre un coup de poing
+- Faire des attaques spéciales
+- Changer de scénarios
+
+
+Histoire : 
+
+Sonic a perdu ses Rings, des petits anneaux qui lui permetent de décupler ses pouvoirs,
+et de traverser l'espace temps mais aussi d'autres dimensions.
+Il faut donc les récupérer au fur et à mesure des scénarios et que ces anneaux ne tombent pas en de mauvaise main.
+
+
+Envoi d'élément sérialisé pour Pixi
+
+
+Page d'acceuil : accessible a tous le monde.
+Page de jeu : Obligation de s'inscrire
+
